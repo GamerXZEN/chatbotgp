@@ -15,6 +15,7 @@ class ChatbotWindow(QMainWindow):
 		self.chat_area = QTextEdit(self)
 		self.chat_area.setGeometry(10, 10, 480, 320)
 		self.chat_area.setReadOnly(True)
+		self.verScrollBar = self.chat_area.verticalScrollBar()
 
 		self.input_box = QLineEdit(self)
 		self.input_box.returnPressed.connect(self.send_message)
