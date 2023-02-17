@@ -1,8 +1,9 @@
 import openai
 
+
 class ChatBot:
 	def __init__(self):
-		openai.api_key = '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'
+		openai.api_key = "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"
 
 	@staticmethod
 	def get_response(text):

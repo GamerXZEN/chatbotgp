@@ -33,7 +33,6 @@ class ChatbotWindow(QMainWindow):
 			self.input_box.clear()
 
 			thread = threading.Thread(target=self.get_bot_response, args=(user_input,))
-			thread.daemon = True
 			thread.start()
 
 	def get_bot_response(self, user_input):
