@@ -9,7 +9,7 @@ class ChatbotWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
 		self.setWindowTitle("ChatbotGPT")
-		self.setMinimumSize(505, 400)
+		self.setMinimumSize(505, 410)
 		self.chatbot = ChatBot()
 
 		self.chat_area = QTextEdit(self)
@@ -24,6 +24,10 @@ class ChatbotWindow(QMainWindow):
 		send_button = QPushButton("Send", self)
 		send_button.clicked.connect(self.send_message)
 		send_button.setGeometry(400, 340, 90, 30)
+
+		clear_button = QPushButton("Clear", self)
+		clear_button.clicked.connect(self.chat_area.clear)
+		clear_button.setGeometry(400, 372, 90, 30)
 
 		self.show()
 
@@ -41,7 +45,10 @@ class ChatbotWindow(QMainWindow):
 		self.chat_area.append(f"<p style='color:#333333; background-color:#E9E9E9'>Bot: {response}\n</p>")
 
 
-if __name__ == "__main__":
-	app = QApplication(sys.argv)
-	window = ChatbotWindow()
-	sys.exit(app.exec())
+try:
+	if __name__ == "__main__":
+		app = QApplication(sys.argv)
+		window = ChatbotWindow()
+		sys.exit(app.exec())
+except ValueError:
+	raise "OpenAI GPT Error"
