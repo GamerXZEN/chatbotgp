@@ -51,4 +51,4 @@ try:
 		window = ChatbotWindow()
 		sys.exit(app.exec())
 except ValueError:
-	raise "OpenAI GPT Error"
+	raise Exception("OpenAI GPT Error")
